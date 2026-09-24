@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import org.osmdroid.config.Configuration
 import org.osmdroid.events.MapEventsReceiver
-import org.osmdroid.tileprovider.tilesource.TileSourceFactory
+import org.osmdroid.tileprovider.tilesource.XYTileSource
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.MapEventsOverlay
@@ -49,7 +49,7 @@ class MapPickerActivity : AppCompatActivity() {
         root.setPadding(0, dp(28f), 0, 0)
 
         map = MapView(this)
-        map.setTileSource(TileSourceFactory.MAPNIK)
+        map.setTileSource(XYTileSource("GSI", 5, 18, 256, ".png", arrayOf("https://cyberjapandata.gsi.go.jp/xyz/std/")))
         map.setMultiTouchControls(true)
         root.addView(map, LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1f))
 
